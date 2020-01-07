@@ -49,23 +49,23 @@ public class EmployeeEntity {
 	private String email;
 	@Column
 	private String maritalStatus;
-	@ManyToOne(targetEntity = Department.class,
+	@ManyToOne(targetEntity = DepartmentEntity.class,
 				cascade = CascadeType.ALL,
 				fetch = FetchType.EAGER)
 	@JoinColumn(name = "departmentId",referencedColumnName = "id")
-	private Department department;
-	@OneToMany(targetEntity = Education.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+	private DepartmentEntity department;
+	@OneToMany(targetEntity = EducationEntity.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
 	@JoinColumn(name = "employeeid",referencedColumnName = "id")
 	@Fetch(FetchMode.JOIN)
-	private List<Education> education;
-	@OneToMany(targetEntity = Education.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+	private List<EducationEntity> education;
+	@OneToMany(targetEntity = EducationEntity.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
 	@JoinColumn(name = "employeeid",referencedColumnName = "id")
 	@Fetch(FetchMode.JOIN)
-	private List<Address> address;
-	@OneToOne(targetEntity = Account.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<AddressEntity> address;
+	@OneToOne(targetEntity = AccountEntity.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn()
 	@LazyToOne(value = LazyToOneOption.PROXY)
 	@Fetch(FetchMode.JOIN)
-	private Set<Account> account;
+	private Set<AccountEntity> account;
 
 }

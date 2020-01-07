@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="ADDRESS")
-public class Address {
+public class AddressEntity {
 	@Column
 	private String address;
 	@Column

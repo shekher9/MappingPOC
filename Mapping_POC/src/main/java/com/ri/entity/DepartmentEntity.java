@@ -12,12 +12,11 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "DEPARTMENT")
-public class Department {
+public class DepartmentEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer id;
+	private Integer deptid;
 	
-	private String deptid;
 	@Column
 	private String departmentname;
 

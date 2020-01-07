@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "EDUCATION")
-public class Education {
+public class EducationEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;

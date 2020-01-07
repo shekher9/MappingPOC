@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="account_detail")
-public class Account {
+public class AccountEntity {
 	@Id
 	private Long accountno;
 	@Column

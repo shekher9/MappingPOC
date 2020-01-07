@@ -4,10 +4,10 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
-import com.ri.entity.Account;
-import com.ri.entity.Address;
-import com.ri.entity.Department;
-import com.ri.entity.Education;
+import com.ri.entity.AccountEntity;
+import com.ri.entity.AddressEntity;
+import com.ri.entity.DepartmentEntity;
+import com.ri.entity.EducationEntity;
 
 public class EmployeeModel {
 	
@@ -31,12 +31,12 @@ public class EmployeeModel {
 	
 	private String maritalStatus;
 	
-	private Department department;
+	private DepartmentEntity department;
 	
-	private List<Education> education;
+	private List<EducationEntity> education;
 
-	private List<Address> address;
+	private List<AddressEntity> address;
 	
-	private Set<Account> account;
+	private Set<AccountEntity> account;
 
 }
