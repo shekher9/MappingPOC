@@ -7,16 +7,4 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
         
-        <changeSet id="10" author="shekher">
-        <createTable tableName="DEPARTMENT">
-        	<column name="deptid" autoIncrement="true" type="int">
-        	<constraints primaryKey="true"/>
-        	</column>
-        	<column name="departmentname" type="varchar" >
-        	<constraints nullable="false"/>
-        	</column>
-        
-        </createTable>
-        </changeSet>
-        
         </databaseChangeLog>

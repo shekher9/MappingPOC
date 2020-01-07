@@ -7,5 +7,9 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
         
         <include file="/db/changelog/changes/create-employe-table-changelog.xml"/>
+        <include file="/db/changelog/changes/create-department-table-changelog.xml"/>
+        <include file="/db/changelog/changes/create-account-table-changelog.xml"/>
+        <include file="/db/changelog/changes/create-education-table-changelog.xml"/>
+        <include file="/db/changelog/changes/create-address-table-changelog.xml"/>
         
         </databaseChangeLog>

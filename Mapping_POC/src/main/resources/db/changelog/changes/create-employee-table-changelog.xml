@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+        
+        <changeSet id="11" author="shekher">
+        <createTable tableName="EMPLOYEE_DTL">
+        <column name="id" type="int" autoIncrement="true" >
+        <constraints primaryKey="true"/>
+        </column>
+        <column name="employeeid" type="varchar" ></column>
+        <column name="empname" type="varchar"></column>
+        <column name="gender" type="varchar"></column>
+        <column name="email" type="varchar"></column>
+        <column name="contactno" type="int"></column>
+        <column name="degination" type="varchar"></column>
+        <column name="DOB" type="date"></column>
+        <column name="DOJ" type="date"></column>
+        <column name="department" type="int">
+        <constraints foreignKeyName="department_id" referencedTableName="department" referencedColumnNames="deptid" deleteCascade="true"/>
+        </column>
+        </createTable>
+        
+        </changeSet>
+        
+        </databaseChangeLog>
