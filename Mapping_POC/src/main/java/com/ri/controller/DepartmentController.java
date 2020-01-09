@@ -26,7 +26,7 @@ import com.ri.service.DepartmentService;
 public class DepartmentController {
 	
 	@Autowired(required = true)
-	private DepartmentService deptsrevice;
+	private DepartmentService deptservice;
 	
 	
 	  @PostMapping("/save")
@@ -34,7 +34,7 @@ public class DepartmentController {
 		 DepartmentEntity entity=new DepartmentEntity();
 		 DepartmentResponse response=null;
 		 BeanUtils.copyProperties(dep, entity);
-		  int id=deptsrevice.saveNewDepartment(entity);
+		  int id=deptservice.saveNewDepartment(entity);
 		  if(id!=0) {
 			  response=DepartmentResponse.builder().deptid(id).status(HttpStatus.OK).message("New Depaetment added").build();
 		  }
@@ -50,7 +50,7 @@ public class DepartmentController {
 	  public List<Department> getAllDepartment(){
 		  List<Department> deptlist=new ArrayList<Department>();
 		  
-		  List<DepartmentEntity> entityList=deptsrevice.getAllDepartment();
+		  List<DepartmentEntity> entityList=deptservice.getAllDepartment();
 		  entityList.forEach(entity->{
 			  Department dept=new Department();
 			  BeanUtils.copyProperties(entity, dept);
@@ -64,7 +64,7 @@ public class DepartmentController {
 	  @GetMapping("/getDepartment/{id}")
 	  public Department getDepartmentById(@PathParam(value = "id") int id) {
 		  Department dept=new Department();
-		  DepartmentEntity entity=deptsrevice.getDepartmentById(id);
+		  DepartmentEntity entity=deptservice.getDepartmentById(id);
 		  BeanUtils.copyProperties(entity, dept);
 		  return dept;
 		  

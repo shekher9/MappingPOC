@@ -6,6 +6,6 @@ import com.ri.entity.DepartmentEntity;
 
 public interface DepartmentRepository extends JpaRepository<DepartmentEntity, Integer> {
 	
-	DepartmentEntity findByDept_id(Integer id);
+	public DepartmentEntity findBydeptid(Integer id);
 
 }

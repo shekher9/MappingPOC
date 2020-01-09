@@ -7,6 +7,6 @@ import com.ri.entity.DepartmentEntity;
 public interface DepartmentService {
 	public Integer saveNewDepartment(DepartmentEntity department);
 	public List<DepartmentEntity> getAllDepartment();
-	public DepartmentEntity getDepartmentById(int id);
+	public DepartmentEntity getDepartmentById(Integer id);
 
 }

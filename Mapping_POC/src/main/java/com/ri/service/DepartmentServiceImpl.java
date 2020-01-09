@@ -19,8 +19,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public Integer saveNewDepartment(DepartmentEntity department) {
 		
 		DepartmentEntity dept=deptrepository.save(department);
-		if(dept.getDept_id()!=null) {
-			return dept.getDept_id();
+		if(dept.getDeptid()!=null) {
+			return dept.getDeptid();
 		}
 		else 
 			return 0;
@@ -34,8 +34,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
-	public DepartmentEntity getDepartmentById(int id) {
-		return deptrepository.findByDept_id(id);
+	public DepartmentEntity getDepartmentById(Integer id) {
+		return deptrepository.findBydeptid(id);
 		//return null;
 	}
 

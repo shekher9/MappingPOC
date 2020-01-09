@@ -19,6 +19,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.ForeignKey;
 import org.hibernate.annotations.LazyToOne;
 import org.hibernate.annotations.LazyToOneOption;
 
@@ -56,6 +57,7 @@ public class EmployeeEntity {
 	 * @JoinColumn(name = "departmentId",referencedColumnName = "dept_id") private
 	 * DepartmentEntity department;
 	 */
+	
 	@OneToMany(targetEntity = EducationEntity.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
 	@JoinColumn(name = "employeeid",referencedColumnName = "id")
 	@Fetch(FetchMode.JOIN)

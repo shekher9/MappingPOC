@@ -6,11 +6,12 @@ import java.util.Map;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ri.entity.EmployeeEntity;
 import com.ri.model.EmployeeModel;
 import com.ri.repository.EmployeeRepository;
-
+@Service("empservice")
 public class EmployeeServiceImpl implements EmployeeService {
 	
 	
