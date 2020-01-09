@@ -8,5 +8,6 @@ public interface DepartmentService {
 	public Integer saveNewDepartment(DepartmentEntity department);
 	public List<DepartmentEntity> getAllDepartment();
 	public DepartmentEntity getDepartmentById(Integer id);
+	public boolean departmentExist(Integer id);
 
 }

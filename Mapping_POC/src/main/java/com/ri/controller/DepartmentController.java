@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.websocket.server.PathParam;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,8 @@ import com.ri.service.DepartmentService;
 
 @RestController
 @RequestMapping("/dept")
-@Consumes(value = {})
+@Consumes(value = MediaType.APPLICATION_JSON)
+@Produces(value = MediaType.APPLICATION_JSON)
 public class DepartmentController {
 	
 	@Autowired(required = true)
@@ -63,13 +66,53 @@ public class DepartmentController {
 	  }
 	  
 	  @GetMapping("/getDepartment/{id}")
-	  public Department getDepartmentById(@PathParam(value = "id") int id) {
+	  public Department getDepartmentById(@PathParam(value = "id") int id)  {
 		  Department dept=new Department();
-		  DepartmentEntity entity=deptservice.getDepartmentById(id);
+		  DepartmentEntity entity=null;
+		  if(id==15){
+			try {
+			  Thread.sleep(3000);
+			 entity=deptservice.getDepartmentById(id);
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		  }
+		  else
+			  entity=deptservice.getDepartmentById(id);
+		  
 		  BeanUtils.copyProperties(entity, dept);
 		  return dept;
 		  
 	  }
+	  
+	  @GetMapping("/fechdeparmentresponce/{id}")
+	  public ResponseEntity<DepartmentResponse> fechDepartmentDetlById(@PathParam(value = "id") Integer id){
+		  boolean flag=false;
+		  DepartmentResponse response=null;
+		  if(id!=15) {
+			  flag= deptservice.departmentExist(id);
+			  if(flag==true)
+				  response=DepartmentResponse.builder().status(HttpStatus.OK).message("Department is exist").build();
+		  }
+		  else {
+			  
+			  try {
+				Thread.sleep(4000);
+				response=DepartmentResponse.builder().status(HttpStatus.NOT_FOUND).message("Department is not exist").build();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			  
+		  }
+		  
+		  
+		  return ResponseEntity.ok(response);
+	  }
+	  
+
+
 	  
 	 
 

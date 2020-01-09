@@ -39,4 +39,10 @@ public class DepartmentServiceImpl implements DepartmentService {
 		//return null;
 	}
 
+	@Override
+	public boolean departmentExist(Integer id) {
+		return deptrepository.existsById(id);
+		
+	}
+
 }
