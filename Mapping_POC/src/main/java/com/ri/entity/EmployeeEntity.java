@@ -32,7 +32,7 @@ public class EmployeeEntity {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	
-	private String employeeid;
+	/* private String employeeid; */
 	@Column
 	private String empname;
 	@Column
@@ -49,11 +49,13 @@ public class EmployeeEntity {
 	private String email;
 	@Column
 	private String maritalStatus;
-	@ManyToOne(targetEntity = DepartmentEntity.class,
-				cascade = CascadeType.ALL,
-				fetch = FetchType.EAGER)
-	@JoinColumn(name = "departmentId",referencedColumnName = "id")
-	private DepartmentEntity department;
+	/*
+	 * @ManyToOne(targetEntity = DepartmentEntity.class, cascade = CascadeType.ALL,
+	 * fetch = FetchType.EAGER)
+	 * 
+	 * @JoinColumn(name = "departmentId",referencedColumnName = "dept_id") private
+	 * DepartmentEntity department;
+	 */
 	@OneToMany(targetEntity = EducationEntity.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
 	@JoinColumn(name = "employeeid",referencedColumnName = "id")
 	@Fetch(FetchMode.JOIN)
@@ -63,9 +65,8 @@ public class EmployeeEntity {
 	@Fetch(FetchMode.JOIN)
 	private List<AddressEntity> address;
 	@OneToOne(targetEntity = AccountEntity.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn()
 	@LazyToOne(value = LazyToOneOption.PROXY)
 	@Fetch(FetchMode.JOIN)
-	private Set<AccountEntity> account;
+	private AccountEntity account;
 
 }

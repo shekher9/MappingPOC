@@ -1,9 +1,7 @@
 package com.ri.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.websocket.server.PathParam;
 
@@ -32,12 +30,12 @@ public class EmployeeController {
 	@PostMapping("/newRegister")
 	public ResponseEntity<EmployeeResponse> registerNewEmployee(@RequestBody EmployeeModel model){
 		EmployeeResponse response=null;
-		Map<String,String> map;
+		int Id=0;
 		EmployeeEntity entity=new EmployeeEntity();
 		BeanUtils.copyProperties(model, entity);
-		map=empservice.saveNewEmployee(entity);
-		if(map.containsKey("Success")) {
-			response=EmployeeResponse.builder().empid(map.get("Success")).ststus(HttpStatus.OK).message("Employee Data Saved").build();
+		Id=empservice.saveNewEmployee( entity);
+		if(Id!=0) {
+			response=EmployeeResponse.builder().empid(Id).ststus(HttpStatus.OK).message("Employee Data Saved").build();
 		}
 		else
 			response=EmployeeResponse.builder().ststus(HttpStatus.OK).message("Employee Data Not saved").build();

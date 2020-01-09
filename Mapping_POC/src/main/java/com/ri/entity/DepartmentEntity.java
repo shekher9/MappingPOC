@@ -15,7 +15,7 @@ import lombok.Data;
 public class DepartmentEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer deptid;
+	private Integer dept_id;
 	
 	@Column
 	private String departmentname;

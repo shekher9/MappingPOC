@@ -7,7 +7,7 @@ import com.ri.entity.EmployeeEntity;
 import com.ri.model.EmployeeModel;
 
 public interface EmployeeService {
-	public Map<String, String> saveNewEmployee(EmployeeEntity entity);
+	public int saveNewEmployee(EmployeeEntity entity);
 	public List<EmployeeEntity> getAllEmployee();
 	public EmployeeModel getEmployeeById(String employeeid);
 	

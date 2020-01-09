@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 @Builder
 public class EmployeeResponse {
-	private String empid;
+	private int empid;
 	private HttpStatus ststus;
 	private String message;
 

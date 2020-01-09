@@ -18,16 +18,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private EmployeeRepository emprepo;
 
 	@Override
-	public Map<String, String> saveNewEmployee(EmployeeEntity entity) {
+	public int saveNewEmployee(EmployeeEntity entity) {
 		String msg=null;
 		Map<String, String> map=new HashMap<String, String>();
 		EmployeeEntity emp=emprepo.save(entity);
 		if(emp.getId()!=null)
-			map.put("Success", emp.getEmployeeid());
+			return emp.getId();
 		else 
-			map.put("Failed", "Data not saved");
+			return 0;
 		
-		return map;
+		
 	}
 
 	@Override

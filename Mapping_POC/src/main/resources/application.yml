@@ -2,13 +2,15 @@ server:
   port: 4020
 spring:
   datasource:
-    url: postgresql://localhost:5432/ribd
+    url: jdbc:postgresql://localhost:5432/ribd
     username: postgres
     password: root
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate-dialect: org.hibernate.dialect.PostgreSQLDialect
 
-  liquibase:
-    change-log: classpath:/db/changelog/changelog-master.xml
+ # liquibase:
+  #  change-log: classpath:/db/changelog/changelog-master.xml
