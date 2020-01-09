@@ -56,7 +56,7 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/getemployee/{employeeid}")
-	public EmployeeModel fechEmployeeByEmployeeId(@PathParam(value = "employeeid") String employeeid) {
+	public EmployeeModel fechEmployeeByEmployeeId(@PathParam(value = "employeeid") int employeeid) {
 		return  empservice.getEmployeeById(employeeid);
 		
 	}

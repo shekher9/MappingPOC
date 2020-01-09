@@ -38,9 +38,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeModel getEmployeeById(String employeeid) {
+	public EmployeeModel getEmployeeById(int id) {
 		EmployeeModel model=null;
-		EmployeeEntity entity=emprepo.findByEmployeeId(employeeid);
+		EmployeeEntity entity=emprepo.findByid(id);
 		BeanUtils.copyProperties(entity, model);
 		return model;
 	}

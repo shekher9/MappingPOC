@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.websocket.server.PathParam;
+import javax.ws.rs.Consumes;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,13 +23,14 @@ import com.ri.service.DepartmentService;
 
 @RestController
 @RequestMapping("/dept")
+@Consumes(value = {})
 public class DepartmentController {
 	
 	@Autowired(required = true)
 	private DepartmentService deptservice;
 	
 	
-	  @PostMapping("/save")
+	  @PostMapping(value = "/save",consumes = "media")
 	  public ResponseEntity<DepartmentResponse> registerNewDepartment(@RequestBody Department dep){
 		 DepartmentEntity entity=new DepartmentEntity();
 		 DepartmentResponse response=null;

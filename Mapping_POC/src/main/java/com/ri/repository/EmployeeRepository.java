@@ -9,6 +9,6 @@ import com.ri.entity.EmployeeEntity;
 @Repository("emprepo")
 public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Integer> {
 	
-	EmployeeEntity findByEmployeeId(String employeeid);
+	EmployeeEntity findByid(int id);
 
 }

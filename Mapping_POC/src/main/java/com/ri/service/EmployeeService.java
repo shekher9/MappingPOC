@@ -9,7 +9,7 @@ import com.ri.model.EmployeeModel;
 public interface EmployeeService {
 	public int saveNewEmployee(EmployeeEntity entity);
 	public List<EmployeeEntity> getAllEmployee();
-	public EmployeeModel getEmployeeById(String employeeid);
+	public EmployeeModel getEmployeeById(int id);
 	
 
 }
